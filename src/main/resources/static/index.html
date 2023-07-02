@@ -4,9 +4,10 @@
         <title>記帳Excel處理</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="script.js"></script>
     </head>
     <body>
-        <form action="http://localhost:8080/excel/import" method="post" enctype="multipart/form-data">
+        <form action="http://localhost:8080/excel/import" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             <label for="file">請上傳記帳Excel</label>
             <input type="file" id="file" name="excel"><br><br>
             <label for="month">請選擇月份</label>
