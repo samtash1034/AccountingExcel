@@ -22,7 +22,8 @@ pipeline {
                 echo "測試 echo 是否成功"
             }
         }
-        stage {
+
+        stage('執行 jar 包...') {
             steps {
 //             超過5天都沒同意就會視為失敗
                 timeout(time:5, unit:'DAYS'){
