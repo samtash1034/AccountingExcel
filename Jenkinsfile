@@ -22,7 +22,7 @@ pipeline {
             post {
                 success {
                     echo '開始存欓...'
-                    archiveArtifacts artifacts: '**/target/*.war'
+                    archiveArtifacts artifacts: '**/target/*.jar'
                 }
             }
         }
