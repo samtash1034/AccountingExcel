@@ -39,7 +39,7 @@ pipeline {
                 stage ("Deploy to Production"){
                     steps {
                         sh "scp -i /Users/sam_huang/Desktop/jenkins.pem target/*.jar ec2-user@${params.tomcat_prod}:/opt"
-                        sh "ssh -i /Users/sam_huang/Desktop/jenkins.pem ec2-user@${params.tomcat_dev} 'sudo java -jar /opt/*.jar &'"
+                        sh "ssh -i /Users/sam_huang/Desktop/jenkins.pem ec2-user@${params.tomcat_prod} 'sudo java -jar /opt/*.jar &'"
                     }
                 }
             }
