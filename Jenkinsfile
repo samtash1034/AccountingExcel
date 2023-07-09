@@ -22,7 +22,7 @@ pipeline {
             post {
                 success {
                     echo '開始存欓...'
-                    archiveArtifacts artifacts: '/Users/sam_huang/IdeaProjects/Excel/ExcelAccountingManager/target/*.jar'
+                    archiveArtifacts artifacts: 'target/*.jar'
                 }
             }
         }
@@ -31,13 +31,13 @@ pipeline {
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp -i /Users/sam_huang/Desktop/jenkins.pem /Users/sam_huang/IdeaProjects/Excel/ExcelAccountingManager/target/*.jar ec2-user@${params.tomcat_dev}:/opt"
+                        sh "scp -i /Users/sam_huang/Desktop/jenkins.pem target/*.jar ec2-user@${params.tomcat_dev}:/opt"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -i /Users/sam_huang/Desktop/jenkins.pem /Users/sam_huang/IdeaProjects/Excel/ExcelAccountingManager/target/*.jar ec2-user@${params.tomcat_prod}:/opt"
+                        sh "scp -i /Users/sam_huang/Desktop/jenkins.pem target/*.jar ec2-user@${params.tomcat_prod}:/opt"
                     }
                 }
             }
