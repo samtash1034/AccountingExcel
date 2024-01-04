@@ -101,6 +101,7 @@ public class AccountingExcelController {
         Cell dateCell = row.getCell(10);
         if (dateCell != null && dateCell.getCellType() == CellType.NUMERIC) {
             LocalDate dateValue = dateCell.getLocalDateTimeCellValue().toLocalDate();
+//            int lastYear = LocalDate.now().getYear() - 1;
             return !(dateValue.getYear() == LocalDate.now().getYear() && dateValue.getMonth() == Month.of(month));
         }
 
